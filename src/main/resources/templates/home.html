@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link media="all" href="/style.css" rel="stylesheet">
+<!--    <link media="all" th:ref="@{/style.css}" rel="stylesheet" type="text/css">-->
     <title>home</title>
 </head>
 <body>
 <h1>HOME page!</h1>
+<header th:insert="blocks/header :: header"></header>
+
 
 </body>
 </html>

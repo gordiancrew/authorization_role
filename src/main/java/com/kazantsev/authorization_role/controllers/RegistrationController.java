@@ -28,14 +28,13 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-        public String addUser(Model model, @RequestParam("username")String username) {
-        System.out.println("!!!!!!!"+username+"!!!!!!!!");
-User user=new User();
-user.setUsername(username);
-user.setPassword("111");
-Role role= roleRepository.getById(2);
-user.setRoles(Collections.singleton(role));
-userRepository.save(user);
+    public String addUser(Model model, @RequestParam("username") String username) {
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword("111");
+        Role role = roleRepository.getById(1);
+        user.setRoles(Collections.singleton(role));
+        userRepository.save(user);
         return "infopage";
     }
 }
