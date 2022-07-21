@@ -1,0 +1,13 @@
+<div th:fragment="addimage">
+    <div class="frameform">
+        <form method="post" enctype="multipart/form-data" th:action="@{/addimage}">
+            <div class="container">
+
+
+                <input type="file" name="file">
+
+                <button type="submit" id="log">ADD IMAGE</button>
+            </div>
+        </form>
+    </div>
+</div>

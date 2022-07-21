@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
@@ -37,6 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/infopage").permitAll()
                 .antMatchers("/creater").permitAll()
                 .antMatchers("/resources/static/**").permitAll()
+                .antMatchers("/addimage").permitAll()
                 //Все остальные страницы требуют аутентификации
                 .anyRequest().authenticated()
                 .and()
@@ -50,6 +52,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll()
                 .logoutSuccessUrl("/");
+    }
+//
+    @Override
+    public void configure(WebSecurity web) {
+        web.ignoring()
+                .antMatchers(
+                        "/styles/**", "/fonts/**",
+                        "/images/**");
     }
 
     @Autowired

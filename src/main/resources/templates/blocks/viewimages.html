@@ -1,0 +1,21 @@
+<div th:fragment="viewimages">
+    <div class="frameform">
+        <table class="content">
+            <tr>
+                <th>id</th>
+                <th>path</th>
+            </tr>
+            <tr th:each="img:${imagelist}">
+<!--                <td>-->
+<!--                    <a th:href="@{/specprofile(specid=${specialist.id})}" th:text="${specialist.name}"/>-->
+<!--                </td>-->
+                <td th:text="${img.id}"/>
+               <td> <img th:src="@{${'images/'+img.imagename}}"
+                     height="255" alt="lorem"/>
+               </td>
+            </tr>
+        </table>
+
+
+    </div>
+</div>

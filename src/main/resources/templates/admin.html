@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link media="all" href="/styles/style.css" rel="stylesheet">
+
     <title>admin</title>
 </head>
 <body>
+<header th:insert="blocks/header :: header"></header>
 <h1>Page for ADMIN!!</h1>
+<header th:insert="blocks/addimage :: addimage"></header>
+<header th:insert="blocks/viewimages :: viewimages"></header>
 </body>
 </html>
