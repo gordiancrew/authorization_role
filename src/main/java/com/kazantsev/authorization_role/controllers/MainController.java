@@ -19,7 +19,8 @@ import java.util.List;
 @Controller
 public class MainController {
     @Autowired
-    ImagesRepository imagesRepository;
+    private ImagesRepository imagesRepository;
+
     @Value("${web.upload-path}")
     private String path;
     @GetMapping("/")
@@ -51,7 +52,7 @@ public class MainController {
 
 
 
-    @PostMapping("/addimage")
+    @PostMapping("/addimage1")
     public String addimagepost(Model model, @RequestParam MultipartFile file) {
         String newFileName = FileNameUtils.getFileName(file.getOriginalFilename());
         Image img = new Image();

@@ -2,10 +2,7 @@ package com.kazantsev.authorization_role.entities;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="images")
@@ -15,4 +12,6 @@ public class Image {
     @GeneratedValue
     private int id;
     private String imagename;
+    @Lob
+    private byte[] bytes;
 }

@@ -10,9 +10,10 @@
 <!--                    <a th:href="@{/specprofile(specid=${specialist.id})}" th:text="${specialist.name}"/>-->
 <!--                </td>-->
                 <td th:text="${img.id}"/>
-               <td> <img th:src="@{${'images/'+img.imagename}}"
+               <td> <img th:src="@{${'images/'+img.id}}"
                      height="255" alt="lorem"/>
                </td>
+
             </tr>
         </table>
 
