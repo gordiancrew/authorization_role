@@ -20,9 +20,13 @@ public class ImageController {
 
     @GetMapping("/images/{id}")
     private ResponseEntity<?> getImageById(@PathVariable Integer id){
+        byte[]def= {1,2,3};
         Image image= imagesRepository.findById(id).orElse(null);
+
         return  ResponseEntity.ok()
                 .header("imagename",image.getImagename())
-                .body(new InputStreamResource(new ByteArrayInputStream(image.getBytes())));
+                .body(new InputStreamResource(image!=null?new ByteArrayInputStream(image.getBytes()):
+                        new ByteArrayInputStream(def)));
+
     }
 }

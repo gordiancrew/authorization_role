@@ -46,10 +46,10 @@ public class CreaterController {
 
     @GetMapping("/deleter")
     public String deleter(){
-
-        roleRepository.deleteAll();
-        userRepository.deleteAll();
         imagesRepository.deleteAll();
+
+        userRepository.deleteAll();
+        roleRepository.deleteAll();
         return "home";
     }
 }
