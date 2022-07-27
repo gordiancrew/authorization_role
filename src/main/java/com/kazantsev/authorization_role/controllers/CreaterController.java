@@ -2,6 +2,7 @@ package com.kazantsev.authorization_role.controllers;
 
 import com.kazantsev.authorization_role.entities.Role;
 import com.kazantsev.authorization_role.entities.User;
+import com.kazantsev.authorization_role.repos.ImagesRepository;
 import com.kazantsev.authorization_role.repos.RoleRepository;
 import com.kazantsev.authorization_role.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ public class CreaterController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    ImagesRepository imagesRepository;
+
     @GetMapping("/creater")
     public String creater(Model model) {
         Role roleUser = new Role();
@@ -37,6 +41,15 @@ public class CreaterController {
         admin.setPassword("111");
         admin.setRoles(Collections.singleton(roleAdmin));
         userRepository.save(admin);
+        return "home";
+    }
+
+    @GetMapping("/deleter")
+    public String deleter(){
+
+        roleRepository.deleteAll();
+        userRepository.deleteAll();
+        imagesRepository.deleteAll();
         return "home";
     }
 }
