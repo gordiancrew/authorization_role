@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
 
+body {
+background: url(/styles/minsk.jpg) no-repeat center center fixed;
+background-size: cover;
+background-color: #606060;
+margin: 200 px;
+}
 .menu-main {
     list-style: none;
     margin: 40px 0 5px;

@@ -38,7 +38,7 @@ public class CreaterController {
         roleRepository.save(roleUser);
         User admin=new User();
         admin.setUsername("vova");
-        admin.setPassword("111");
+        admin.setPassword("$2a$10$lIroGsPzn5bsKwFa1TN3a.IlUDRwUOMe9qJ1gYpiAGEN1QeSGIpxG");
         admin.setRoles(Collections.singleton(roleAdmin));
         userRepository.save(admin);
         return "home";
