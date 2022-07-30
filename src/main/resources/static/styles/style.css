@@ -20,7 +20,7 @@ margin: 200 px;
 }
 
 .menu-main li:after {
-    content: "|";
+
     color: #606060;
     display: inline-block;
     vertical-align: top;
@@ -36,7 +36,7 @@ margin: 200 px;
     position: relative;
     padding-bottom: 20px;
     margin: 0 34px 0 30px;
-    font-size: 17px;
+    font-size: 47px;
     text-transform: uppercase;
     display: inline-block;
 }
