@@ -50,3 +50,28 @@ margin: 200 px;
 .menu-main a:hover {
     color: #feb386;
 }
+
+.content {
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    list-style: none;
+    margin: 0 auto;
+    text-align: center;
+    background: white;
+    opacity: 0.9;
+}
+.smog {
+    width: auto;
+    padding: 20px;
+    font-size: 20px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    list-style: none;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: white;
+    opacity: 0.8;
+}

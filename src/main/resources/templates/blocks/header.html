@@ -1,7 +1,12 @@
 <div th:fragment="header">
     <ul class="menu-main">
-        <li><a th:href="@{/news}">news(not registration)</a></li>
-        <li><a th:href="@{/}">home(All)</a></li>
+        <li><a th:href="@{/news}">news</a></li>
+        <li><a th:href="@{/}">home</a></li>
+
+        <li sec:authorize="!isAuthenticated()"><a th:href="@{/user}">вход</a></li>
+        <li sec:authorize="!isAuthenticated()"><a th:href="@{/registration}">регистрация</a></li>
+
+        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">выход</a></li>
 
 
     </ul>

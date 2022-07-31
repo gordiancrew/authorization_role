@@ -5,6 +5,7 @@ import com.kazantsev.authorization_role.entities.User;
 import com.kazantsev.authorization_role.repos.RoleRepository;
 import com.kazantsev.authorization_role.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import java.util.Collections;
 
 @Controller
 public class RegistrationController {
+    private final String GOOD_REG="регистрация прошла успешно";
 
     @Autowired
     UserRepository userRepository;
@@ -28,13 +30,15 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String addUser(Model model, @RequestParam("username") String username) {
+    public String addUser(Model model, @RequestParam("username") String username,@RequestParam("password") String password) {
         User user = new User();
         user.setUsername(username);
-        user.setPassword("111");
+        BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+        user.setPassword(encoder.encode(password));
         Role role = roleRepository.getById(1);
         user.setRoles(Collections.singleton(role));
         userRepository.save(user);
-        return "infopage";
+        model.addAttribute("info",GOOD_REG);
+        return "home";
     }
 }
