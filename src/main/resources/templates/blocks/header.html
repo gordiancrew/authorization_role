@@ -1,9 +1,11 @@
 <div th:fragment="header">
     <ul class="menu-main">
-        <li><a th:href="@{/}">home</a></li>
+        <li><a th:href="@{/}">дом</a></li>
+
+        <li sec:authorize="isAuthenticated()"><a th:href="@{/}">карта(?)</a></li>
+        <li sec:authorize="isAuthenticated()"><a th:href="@{/}">вопросы(?)</a></li>
+
         <li sec:authorize="!isAuthenticated()"><a th:href="@{/user}">вход</a></li>
         <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">выход</a></li>
-
-
     </ul>
 </div>

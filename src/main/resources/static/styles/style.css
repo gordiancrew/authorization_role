@@ -6,6 +6,10 @@ background-size: cover;
 background-color: #606060;
 margin: 200 px;
 }
+
+input[type="username"] {
+text-transform: lowercase;
+}
 .menu-main {
     list-style: none;
     margin: 40px 0 5px;
