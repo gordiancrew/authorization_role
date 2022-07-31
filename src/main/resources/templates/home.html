@@ -11,17 +11,8 @@
 <header th:insert="blocks/header :: header"></header>
 
 <h1 th:text="${info}"/>
-<div class="float" sec:authorize="!isAuthenticated()">
-    <form th:action="@{/Authorization}" method="post">
-        <input type="submit" value="Авторизоваться">
-    </form>
-</div>
 
-<div class="float" sec:authorize="isAuthenticated()">
-    <form th:action="@{/user}" method="post">
-        <input type="submit" value="Выйти">
-    </form>
-</div>
+
 <div class="smog">
 <div class="content" sec:authorize="isAuthenticated()">
     <img th:src="@{/styles/map.jpg}"

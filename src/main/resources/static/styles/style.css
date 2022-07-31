@@ -75,3 +75,48 @@ margin: 200 px;
     background: white;
     opacity: 0.8;
 }
+.frame {
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: auto;
+    background: rgba(255, 245, 215, .5);
+}
+.frame form {
+    position: relative;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+ .frame input {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    width: 100%;
+   text-align: center;
+    margin-top: 20px;
+
+font-size: 30px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid #606060;
+    outline: none;
+    background: #F9F0DA;
+    color: black;
+}
+ .frame button {
+    position: relative;
+border: 2px solid #606060;
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    background: #606060;
+    cursor: pointer;
+}
+

@@ -42,7 +42,7 @@ public class MainController {
 
     @GetMapping("/user")
     public String user() {
-        return "user";
+        return "home";
     }
 
     @GetMapping("/adminuser")
