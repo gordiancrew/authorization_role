@@ -23,6 +23,9 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
+    @ManyToOne
+    private Stage stage;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRoles();

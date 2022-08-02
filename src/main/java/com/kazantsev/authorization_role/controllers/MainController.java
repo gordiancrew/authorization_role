@@ -2,7 +2,11 @@ package com.kazantsev.authorization_role.controllers;
 
 import com.kazantsev.authorization_role.entities.Image;
 import com.kazantsev.authorization_role.entities.Role;
+import com.kazantsev.authorization_role.entities.Stage;
+import com.kazantsev.authorization_role.entities.User;
 import com.kazantsev.authorization_role.repos.ImagesRepository;
+import com.kazantsev.authorization_role.repos.StagesRepository;
+import com.kazantsev.authorization_role.repos.UserRepository;
 import com.kazantsev.authorization_role.uploader.FileNameUtils;
 import com.kazantsev.authorization_role.uploader.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +25,6 @@ public class MainController {
     @Autowired
     private ImagesRepository imagesRepository;
 
-    @Value("${web.upload-path}")
-    private String path;
     @GetMapping("/")
     public String start() {
         return "home";
@@ -35,10 +37,6 @@ public class MainController {
         return "admin";
     }
 
-    @GetMapping("/news")
-    public String news() {
-        return "news";
-    }
 
     @GetMapping("/user")
     public String user() {
@@ -52,21 +50,6 @@ public class MainController {
 
 
 
-    @PostMapping("/addimage1")
-    public String addimagepost(Model model, @RequestParam MultipartFile file) {
-        String newFileName = FileNameUtils.getFileName(file.getOriginalFilename());
-        Image img = new Image();
-        img.setImagename(newFileName);
 
-
-        if (FileUtils.upload(file, path, newFileName)) {
-            model.addAttribute("info", "upload is successful");
-
-        } else {
-            model.addAttribute("info", "upload is error");
-        }
-        imagesRepository.save(img);
-        return "home";
-    }
 
 }
