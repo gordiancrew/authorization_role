@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link media="all" href="/styles/style.css" rel="stylesheet">
     <!--    <link media="all" th:ref="@{/style.css}" rel="stylesheet" type="text/css">-->
-    <title>home</title>
+    <title>rule</title>
 </head>
 <body>
 
@@ -13,21 +13,9 @@
 <h1 th:text="${info}"/>
 
 
-<div class="content" sec:authorize="isAuthenticated()">
-    <figure>
-        <img  th:src="@{/styles/map.jpg}"
-              width="100%" alt="lorem"/>
-    </figure>
-
-<!--    <figure>-->
-<!--    <img  th:src="@{/styles/map.jpg}"-->
-<!--         height="700" alt="lorem"/>-->
-<!--    </figure>-->
-</div>
 
 
-
-    <div class="content" sec:authorize="!isAuthenticated()">
+    <div class="content">
 
         <h1>Добрый день друг. Приветствую тебя на городском квесте FIRJ. Суть игры проста-
             дается картинка, обозначающая локацию и три вопросаб ответы на которые прячутся в данной

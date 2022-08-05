@@ -2,7 +2,7 @@
     <ul class="menu-main">
         <li><a th:href="@{/}">дом</a></li>
 
-        <li sec:authorize="isAuthenticated()"><a th:href="@{/}">карта(?)</a></li>
+        <li sec:authorize="isAuthenticated()"><a th:href="@{/rule}">правила</a></li>
         <li sec:authorize="isAuthenticated()"><a th:href="@{/}">вопросы(?)</a></li>
 
         <li sec:authorize="!isAuthenticated()"><a th:href="@{/user}">вход</a></li>
