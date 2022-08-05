@@ -12,12 +12,18 @@
 
 <h1 th:text="${info}"/>
 
+<div class ="content">
+    <figure>
+        <img  th:src="@{/styles/map.jpg}"
+              width="100%" alt="lorem"/>
+    </figure>
 
-
+</div>
 <div class="content" sec:authorize="isAuthenticated()">
-    <img th:src="@{/styles/map.jpg}"
-         height="500" alt="lorem"/>
-
+  <figure>
+    <img  th:src="@{/styles/map.jpg}"
+         height="700" alt="lorem"/>
+    </figure>
 </div>
 
 
