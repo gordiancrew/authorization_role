@@ -19,18 +19,18 @@ import java.io.ByteArrayInputStream;
 @RequiredArgsConstructor
 public class ImageController {
     private final StagesRepository stagesRepository;
-
-    @GetMapping("/imagess/{id}")
-    private ResponseEntity<?> getStageById(@PathVariable Integer id){
-        byte[]def= {1,2,3};
-        Stage stage= stagesRepository.findById(id).orElse(null);
-
-        return  ResponseEntity.ok()
-                .header("name",stage.getName())
-                .body(new InputStreamResource(stage!=null?new ByteArrayInputStream(stage.getImg()):
-                        new ByteArrayInputStream(def)));
-
-    }
+//
+//    @GetMapping("/imagess/{id}")
+//    private ResponseEntity<?> getStageById(@PathVariable Integer id){
+//        byte[]def= {1,2,3};
+//        Stage stage= stagesRepository.findById(id).orElse(null);
+//
+//        return  ResponseEntity.ok()
+//                .header("name",stage.getName())
+//                .body(new InputStreamResource(stage!=null?new ByteArrayInputStream(stage.getImg()):
+//                        new ByteArrayInputStream(def)));
+//
+//    }
 
 //    @GetMapping("/images/{id}")
 //    private ResponseEntity<?> getImageById(@PathVariable Integer id){

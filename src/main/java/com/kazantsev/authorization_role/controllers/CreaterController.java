@@ -4,6 +4,7 @@ import com.kazantsev.authorization_role.entities.Role;
 import com.kazantsev.authorization_role.entities.User;
 import com.kazantsev.authorization_role.repos.ImagesRepository;
 import com.kazantsev.authorization_role.repos.RoleRepository;
+import com.kazantsev.authorization_role.repos.StagesRepository;
 import com.kazantsev.authorization_role.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,9 @@ public class CreaterController {
     @Autowired
     ImagesRepository imagesRepository;
 
+    @Autowired
+    StagesRepository stagesRepository;
+
     @GetMapping("/creater")
     public String creater(Model model) {
         Role roleUser = new Role();
@@ -36,7 +40,7 @@ public class CreaterController {
         roleAdmin.setName(ROLE_ADMIN);
         roleRepository.save(roleAdmin);
         roleRepository.save(roleUser);
-        User admin=new User();
+        User admin = new User();
         admin.setUsername("vova");
         admin.setPassword("$2a$10$lIroGsPzn5bsKwFa1TN3a.IlUDRwUOMe9qJ1gYpiAGEN1QeSGIpxG");
         admin.setRoles(Collections.singleton(roleAdmin));
@@ -45,9 +49,9 @@ public class CreaterController {
     }
 
     @GetMapping("/deleter")
-    public String deleter(){
+    public String deleter() {
         imagesRepository.deleteAll();
-
+        stagesRepository.deleteAll();
         userRepository.deleteAll();
         roleRepository.deleteAll();
         return "home";

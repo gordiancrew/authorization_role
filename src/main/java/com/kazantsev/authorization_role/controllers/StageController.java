@@ -27,8 +27,7 @@ public class StageController {
     @PostMapping("/addstage")
     public String addstage(Model model, @RequestParam String id, @RequestParam String name,
                            @RequestParam String q1, @RequestParam String q2, @RequestParam String q3,
-                           @RequestParam String a1, @RequestParam String a2, @RequestParam String a3,
-                           @RequestParam MultipartFile file) throws IOException {
+                           @RequestParam String a1, @RequestParam String a2, @RequestParam String a3) throws IOException {
         System.out.println(2);
         Stage stage = new Stage();
         stage.setId(Integer.parseInt(id));
@@ -39,7 +38,7 @@ public class StageController {
         stage.setA1(a1);
         stage.setA2(a2);
         stage.setA3(a3);
-        stage.setImg(file.getBytes());
+//        stage.setImg(file.getBytes());
         stagesRepository.save(stage);
         System.out.println(3);
         return "admin";
