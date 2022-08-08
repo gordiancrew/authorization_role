@@ -12,8 +12,15 @@ public class Stage {
     @Id
     private Integer id;
     private String name;
-    private String quest1;
-    private String quest2;
+    private String q1;
+    private String q2;
+    private String q3;
+    private String a1;
+    private String a2;
+    private String a3;
+    @Lob
+    private byte[] img;
+
     @Transient
     @OneToMany
     private Set<User> user;

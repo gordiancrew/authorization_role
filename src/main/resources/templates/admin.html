@@ -9,7 +9,30 @@
 <body>
 <header th:insert="blocks/header :: header"></header>
 <h1>Page for ADMIN!!</h1>
-<header th:insert="blocks/addimage :: addimage"></header>
-<header th:insert="blocks/viewimages :: viewimages"></header>
+<li><a th:href="@{/addstage}">добавить сцену</a></li>
+<!--<header th:insert="blocks/addimage :: addimage"></header>-->
+<div class="frameform">
+    <table class="content">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>img</th>
+        </tr>
+        <tr th:each="stage:${stagelist}">
+            <!--                <td>-->
+            <!--                    <a th:href="@{/specprofile(specid=${specialist.id})}" th:text="${specialist.name}"/>-->
+            <!--                </td>-->
+            <td th:text="${stage.id}"/>
+            <td th:text="${stage.name}"/>
+            <td> <img th:src="@{${'imagess/'+stage.id}}"
+                      height="255" alt="lorem"/>
+            </td>
+
+        </tr>
+    </table>
+
+
+</div>
+
 </body>
 </html>

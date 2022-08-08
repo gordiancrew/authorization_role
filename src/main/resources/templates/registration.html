@@ -3,18 +3,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link media="all" href="/styles/style.css" rel="stylesheet">
     <title>Registration</title>
 </head>
 <body>
-<h1>REGISTRATION page!</h1>
-
+<header th:insert="blocks/header :: header"></header>
+<div class="frame">
 <form th:action="@{/registration}" method="post">
 
     <label>USER NAME</label>
     <input type="text" name="username" placeholder="username" />
-    <input type="text" name="password" placeholder="password" />
-    <input type="submit" value="Submit"/>
+    <input type="password" name="password" placeholder="password" />
+    <button type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ"/>
 </form>
-
+</div>
 </body>
 </html>

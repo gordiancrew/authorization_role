@@ -31,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 //Доступ только для пользователей с ролью Администратор
                 .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/addstage").hasRole("ADMIN")
                 .antMatchers("/user").hasRole("USER")
                 .antMatchers("/rule").hasRole("USER")
                 .antMatchers("/adminuser").hasAnyRole("ADMIN","USER")
@@ -38,6 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //Доступ разрешен всем пользователей
                 .antMatchers("/").permitAll()
                 .antMatchers("/infopage").permitAll()
+                .antMatchers("/quests").permitAll()
                 .antMatchers("/creater").permitAll()
                 .antMatchers("/deleter").permitAll()
                 .antMatchers("/resources/static/**").permitAll()
@@ -63,7 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring()
                 .antMatchers(
                         "/styles/**", "/fonts/**",
-                        "/images/**","/imgs/**");
+                        "/imagess/**","/imgs/**");
     }
 
     @Autowired

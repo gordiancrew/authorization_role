@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/style.css" rel="stylesheet">
+    <title>quests</title>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<form>
+    <div class="content">
+        <p th:text="${stage.q1}"/>
+        <input type="text" name="answer1" placeholder="ответ1"/>
+    </div>
+    <div class="content">
+        <p th:text="${stage.q2}"/>
+        <input type="text" name="answer1" placeholder="ответ2"/>
+    </div>
+    <div class="content">
+        <p th:text="${stage.q3}"/>
+        <input type="text" name="answer1" placeholder="ответ3"/>
+    </div>
+    <input type="submit" value="ОТВЕТИТЬ"/>
+</form>
+</body>
+</html>

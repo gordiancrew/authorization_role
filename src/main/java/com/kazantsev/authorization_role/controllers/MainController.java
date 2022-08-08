@@ -22,20 +22,14 @@ import java.util.List;
 
 @Controller
 public class MainController {
-    @Autowired
-    private ImagesRepository imagesRepository;
+
 
     @GetMapping("/")
     public String start() {
         return "home";
     }
 
-    @GetMapping("/admin")
-    public String admin(Model model) {
-        List<Image> imagelist=imagesRepository.findAll();
-        model.addAttribute("imagelist",imagelist);
-        return "admin";
-    }
+
 
 
     @GetMapping("/user")

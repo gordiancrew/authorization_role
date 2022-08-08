@@ -1,8 +1,10 @@
 package com.kazantsev.authorization_role.controllers;
 
 import com.kazantsev.authorization_role.entities.Role;
+import com.kazantsev.authorization_role.entities.Stage;
 import com.kazantsev.authorization_role.entities.User;
 import com.kazantsev.authorization_role.repos.RoleRepository;
+import com.kazantsev.authorization_role.repos.StagesRepository;
 import com.kazantsev.authorization_role.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -24,6 +26,9 @@ public class RegistrationController {
     @Autowired
     RoleRepository roleRepository;
 
+    @Autowired
+    StagesRepository stagesRepository;
+
     @GetMapping("/registration")
     public String registration(Model model) {
         return "registration";
@@ -37,6 +42,8 @@ public class RegistrationController {
         user.setPassword(encoder.encode(password));
         Role role = roleRepository.getById(1);
         user.setRoles(Collections.singleton(role));
+        Stage stage=stagesRepository.getById(1);
+        user.setStage(stage);
         userRepository.save(user);
         model.addAttribute("info",GOOD_REG);
         return "home";
