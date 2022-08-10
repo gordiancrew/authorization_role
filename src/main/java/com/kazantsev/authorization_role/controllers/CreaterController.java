@@ -51,9 +51,10 @@ public class CreaterController {
     @GetMapping("/deleter")
     public String deleter() {
         imagesRepository.deleteAll();
-        stagesRepository.deleteAll();
+
         userRepository.deleteAll();
         roleRepository.deleteAll();
+        stagesRepository.deleteAll();
         return "home";
     }
 }

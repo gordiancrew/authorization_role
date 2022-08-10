@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link media="all" href="/styles/style.css" rel="stylesheet">
+    <!--    <link media="all" th:ref="@{/style.css}" rel="stylesheet" type="text/css">-->
+    <title>fail</title>
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<h1>Где то ответил неверно!</h1>
+<form method="get" th:action="@{/quests}">
+    <button type="submit">ПРОБУЕМ ЕЩЕ</button>
+</form>
+</body>
+</html>
