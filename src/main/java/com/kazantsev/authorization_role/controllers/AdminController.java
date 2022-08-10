@@ -2,6 +2,7 @@ package com.kazantsev.authorization_role.controllers;
 
 import com.kazantsev.authorization_role.entities.Image;
 import com.kazantsev.authorization_role.entities.Stage;
+import com.kazantsev.authorization_role.repos.ImagesRepository;
 import com.kazantsev.authorization_role.repos.StagesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,10 +16,16 @@ public class AdminController {
 
     @Autowired
     StagesRepository stagesRepository;
+
+    @Autowired
+    private ImagesRepository imagesRepository;
+
     @GetMapping("/admin")
     public String admin(Model model) {
         List<Stage> stagelist=stagesRepository.findAll();
+        List<Image> imagelist=imagesRepository.findAll();
         model.addAttribute("stagelist",stagelist);
+        model.addAttribute("imagelist",imagelist);
         return "admin";
     }
 }

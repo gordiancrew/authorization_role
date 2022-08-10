@@ -2,6 +2,7 @@ package com.kazantsev.authorization_role.controllers;
 
 import com.kazantsev.authorization_role.entities.Stage;
 import com.kazantsev.authorization_role.entities.User;
+import com.kazantsev.authorization_role.repos.ImagesRepository;
 import com.kazantsev.authorization_role.repos.StagesRepository;
 import com.kazantsev.authorization_role.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class QuestController {
     @Autowired
     StagesRepository stagesRepository;
 
+
+
+
     @GetMapping("/quests")
     public String quests(Model model) {
         String username;
@@ -32,7 +36,10 @@ public class QuestController {
         }
         User user = userRepository.findByUsername(username);
         Stage stage = user.getStage();
+
+
         model.addAttribute("stage", stage);
+
         return "quests";
     }
 

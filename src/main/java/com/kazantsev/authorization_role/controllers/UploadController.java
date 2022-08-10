@@ -20,13 +20,13 @@ public class UploadController {
     private ImagesRepository imagesRepository;
 
 
-    @PostMapping("/addimage")
-    public String addimagepost(Model model, @RequestParam MultipartFile file) throws IOException {
-        String newFileName = FileNameUtils.getFileName(file.getOriginalFilename());
-        Image img = new Image();
-        img.setImagename(newFileName);
-        img.setBytes(file.getBytes());
-        imagesRepository.save(img);
+  //  @PostMapping("/addimages")
+  //  public String addimagepost(Model model, @RequestParam MultipartFile file) throws IOException {
+//        String newFileName = FileNameUtils.getFileName(file.getOriginalFilename());
+//        Image img = new Image();
+//        img.setImagename(newFileName);
+//        img.setBytes(file.getBytes());
+//        imagesRepository.save(img);
 
 
 //        if (FileUtils.upload(file, path, newFileName)) {
@@ -36,8 +36,8 @@ public class UploadController {
 //            model.addAttribute("info", "upload is error");
 //        }
 
-        return "home";
-    }
+    //    return "home";
+   // }
 
 
 }

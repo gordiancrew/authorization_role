@@ -9,9 +9,8 @@ import javax.persistence.*;
 @Data
 public class Image {
     @Id
-    @GeneratedValue
     private int id;
-    private String imagename;
+    private String name;
     @Lob
     private byte[] bytes;
 }

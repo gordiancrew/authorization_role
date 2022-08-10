@@ -7,6 +7,12 @@
 </head>
 <body>
 <header th:insert="blocks/header :: header"></header>
+
+<figure>
+    <img  th:src="@{${'images/'+stage.id}}"
+          width="100%" alt="lorem"/>
+
+
 <form th:action="@{/quests}" method="post">
     <div class="content">
         <p th:text="${stage.q1}"/>
@@ -24,5 +30,6 @@
         <button type="submit">ОТВЕТИТЬ</button>
     </div>
 </form>
+</figure>
 </body>
 </html>
