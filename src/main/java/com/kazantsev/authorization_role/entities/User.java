@@ -18,6 +18,8 @@ public class User implements UserDetails {
     private int id;
     private String username;
     private String password;
+    private String name;
+    private String surename;
     @Transient
     private String passwordConfirm;
     @ManyToMany(fetch = FetchType.EAGER)

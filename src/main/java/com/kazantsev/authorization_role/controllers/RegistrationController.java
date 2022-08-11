@@ -18,7 +18,7 @@ import java.util.Collections;
 
 @Controller
 public class RegistrationController {
-    private final String GOOD_REG="регистрация прошла успешно";
+    private final String GOOD_REG="регистрация прошла успешно, для того чтобы играть нужно войти.";
 
     @Autowired
     UserRepository userRepository;
@@ -35,11 +35,14 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String addUser(Model model, @RequestParam("username") String username,@RequestParam("password") String password) {
+    public String addUser(Model model, @RequestParam("username") String username,@RequestParam("password") String password,
+                          @RequestParam String name, @RequestParam String surename) {
         User user = new User();
         user.setUsername(username);
         BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(password));
+        user.setName(name);
+        user.setSurename(surename);
         Role role = roleRepository.getById(1);
         user.setRoles(Collections.singleton(role));
         Stage stage=stagesRepository.getById(1);

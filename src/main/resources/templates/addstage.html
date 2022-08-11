@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <link media="all" href="/styles/style.css" rel="stylesheet">
-  <title>addstage</title>
+    <meta charset="UTF-8">
+    <link media="all" href="/styles/style.css" rel="stylesheet">
+    <title>addstage</title>
 </head>
 <body>
 
 <form method="post" enctype="multipart/form-data" th:action="@{/addstage}">
-  <div class="frame">
-
-    <input type="text" name="id" placeholder="id"/>
-    <input type="text" name="name" placeholder="name"/>
-    <textarea type="text" name="q1" placeholder="q1"></textarea>
-    <textarea type="text" name="q2" placeholder="q2"></textarea>
-    <textarea type="text" name="q3" placeholder="q3"></textarea>
-    <input type="text" name="a1" placeholder="a1"/>
-    <input type="text" name="a2" placeholder="a2"/>
-    <input type="text" name="a3" placeholder="a3"/>
-<!--    <input type="file" name="file" >-->
-
-    <button type="submit" id="log">ADD STAGE</button>
-  </div>
+    <div class="frame">
+        <input type="text" name="id" placeholder="id"/>
+        <input type="text" name="name" placeholder="name"/>
+        <textarea type="text" name="q1" placeholder="q1"></textarea>
+        <textarea type="text" name="q2" placeholder="q2"></textarea>
+        <textarea type="text" name="q3" placeholder="q3"></textarea>
+        <input type="text" name="a1" placeholder="a1"/>
+        <input type="text" name="a2" placeholder="a2"/>
+        <input type="text" name="a3" placeholder="a3"/>
+        <button type="submit" id="log">ADD STAGE</button>
+    </div>
 </form>
-
 </body>
 </html>

@@ -11,9 +11,11 @@
 <div class="frame">
 <form th:action="@{/registration}" method="post">
 
-    <label>USER NAME</label>
-    <input type="text" name="username" placeholder="username" />
-    <input type="password" name="password" placeholder="password" />
+    <label>Данные для регистрации</label>
+    <input type="text" name="username" placeholder="логин" onchange="this.value=this.value.toLowerCase();"   autofocus="true" />
+    <input type="password" name="password" placeholder="пароль" />
+    <input type="text" name="name" placeholder="имя" />
+    <input type="text" name="surename" placeholder="фамилия" />
     <button type="submit" >регистрация</button>
 </form>
 </div>

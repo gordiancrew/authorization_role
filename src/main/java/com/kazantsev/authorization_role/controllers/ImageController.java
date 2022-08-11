@@ -46,7 +46,7 @@ public class ImageController {
         Image image= imagesRepository.findById(id).orElse(null);
 
         return  ResponseEntity.ok()
-                .header("name",image.getName())
+                //.header("name",image.getName())
                 .body(new InputStreamResource(image!=null?new ByteArrayInputStream(image.getBytes()):
                         new ByteArrayInputStream(def)));
 

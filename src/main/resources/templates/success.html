@@ -9,10 +9,11 @@
 <body>
 
 <header th:insert="blocks/header :: header"></header>
-
-<h1>Ты красавчик, эта локация пройдена!!</h1>
-<form method="get" th:action="@{/}">
-    <button type="submit">ДВИГАЕМСЯ ДАЛЬШЕ</button>
-</form>
+<div class="content">
+    <h1>Ты красавчик, эта локация пройдена!!</h1>
+    <form method="get" th:action="@{/quests}">
+        <button type="submit">ДВИГАЕМСЯ ДАЛЬШЕ</button>
+    </form>
+</div>
 </body>
 </html>
