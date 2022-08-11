@@ -2,8 +2,8 @@
     <ul class="menu-main">
         <li><a th:href="@{/}">дом</a></li>
 
-        <li sec:authorize="isAuthenticated()"><a th:href="@{/rule}">прогресс</a></li>
-        <li sec:authorize="isAuthenticated()"><a th:href="@{/quests}">вопросы</a></li>
+<!--        <li sec:authorize="isAuthenticated()"><a th:href="@{/rule}">прогресс</a></li>-->
+        <li sec:authorize="isAuthenticated()"><a th:href="@{/quests}">квест</a></li>
 
         <li sec:authorize="!isAuthenticated()"><a th:href="@{/user}">вход</a></li>
         <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">выход</a></li>

@@ -79,6 +79,20 @@ margin: 200 px;
     background: #F9F0DA;
     color: black;
 }
+
+.content button {
+    position: relative;
+border: 2px solid #606060;
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    background: #606060;
+    cursor: pointer;
+}
 .smog {
     width: auto;
     padding: 20px;

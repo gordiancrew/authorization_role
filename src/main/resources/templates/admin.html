@@ -38,9 +38,6 @@
             <th>img</th>
         </tr>
         <tr th:each="img:${imagelist}">
-            <!--                <td>-->
-            <!--                    <a th:href="@{/specprofile(specid=${specialist.id})}" th:text="${specialist.name}"/>-->
-            <!--                </td>-->
             <td th:text="${img.id}"/>
 
                         <td> <img th:src="@{${'images/'+img.id}}"
@@ -50,6 +47,20 @@
         </tr>
     </table>
 
+    <table class="content">
+        <tr>
+            <th>id</th>
+            <th>username</th>
+            <th>stage</th>
+        </tr>
+        <tr th:each="user:${userlist}">
+            <td th:text="${user.id}"/>
+
+          <td th:text="${user.username}"/>
+            <td th:text="${user.stage}"/>
+
+        </tr>
+    </table>
 
 </div>
 
