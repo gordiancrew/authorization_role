@@ -25,58 +25,33 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class ImageController {
 
+    private final String IMAGE_UPLOAD = "Картинка добавлена!";
+
     @Autowired
     private ImagesRepository imagesRepository;
-//
-//    @GetMapping("/imagess/{id}")
-//    private ResponseEntity<?> getStageById(@PathVariable Integer id){
-//        byte[]def= {1,2,3};
-//        Stage stage= stagesRepository.findById(id).orElse(null);
-//
-//        return  ResponseEntity.ok()
-//                .header("name",stage.getName())
-//                .body(new InputStreamResource(stage!=null?new ByteArrayInputStream(stage.getImg()):
-//                        new ByteArrayInputStream(def)));
-//
-//    }
 
     @GetMapping("/images/{id}")
-    private ResponseEntity<?> getImageById(@PathVariable Integer id){
-        byte[]def= {1,2,3};
-        Image image= imagesRepository.findById(id).orElse(null);
+    private ResponseEntity<?> getImageById(@PathVariable Integer id) {
+        byte[] def = {1, 2, 3};
+        Image image = imagesRepository.findById(id).orElse(null);
 
-        return  ResponseEntity.ok()
+        return ResponseEntity.ok()
                 //.header("name",image.getName())
-                .body(new InputStreamResource(image!=null?new ByteArrayInputStream(image.getBytes()):
+                .body(new InputStreamResource(image != null ? new ByteArrayInputStream(image.getBytes()) :
                         new ByteArrayInputStream(def)));
 
     }
 
     @PostMapping("/addimage")
-    public String addimagepost(Model model,@RequestParam String id,@RequestParam String name,
+    public String addimagepost(Model model, @RequestParam String id, @RequestParam String name,
                                @RequestParam MultipartFile file) throws IOException {
 
-        Image image=new Image();
+        Image image = new Image();
         image.setId(Integer.parseInt(id));
         image.setName(name);
         image.setBytes(file.getBytes());
         imagesRepository.save(image);
-
-
-        //        String newFileName = FileNameUtils.getFileName(file.getOriginalFilename());
-//        Image img = new Image();
-//        img.setImagename(newFileName);
-//        img.setBytes(file.getBytes());
-//        imagesRepository.save(img);
-
-
-//        if (FileUtils.upload(file, path, newFileName)) {
-//            model.addAttribute("info", "upload is successful");
-//
-//        } else {
-//            model.addAttribute("info", "upload is error");
-//        }
-
-        return "home";
+        model.addAttribute("info", IMAGE_UPLOAD);
+        return "admin";
     }
 }

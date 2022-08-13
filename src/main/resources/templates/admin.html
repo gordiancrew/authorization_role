@@ -7,10 +7,10 @@
     <title>admin</title>
 </head>
 <body>
+<h1 th:text="info"/>
 <header th:insert="blocks/header :: header"></header>
-<h1>Page for ADMIN!!</h1>
 <li><a th:href="@{/addstage}">добавить сцену</a></li>
-<header th:insert="blocks/addimage :: addimage"></header>
+<li><a th:href="@{/addimage}">добавить картинку</a></li>
 <div class="frameform">
     <table class="content">
         <tr>
@@ -19,15 +19,8 @@
             <th>img</th>
         </tr>
         <tr th:each="stage:${stagelist}">
-            <!--                <td>-->
-            <!--                    <a th:href="@{/specprofile(specid=${specialist.id})}" th:text="${specialist.name}"/>-->
-            <!--                </td>-->
             <td th:text="${stage.id}"/>
             <td th:text="${stage.name}"/>
-<!--            <td> <img th:src="@{${'imagess/'+stage.id}}"-->
-<!--                      height="255" alt="lorem"/>-->
-<!--            </td>-->
-
         </tr>
     </table>
 
@@ -40,9 +33,9 @@
         <tr th:each="img:${imagelist}">
             <td th:text="${img.id}"/>
 
-                        <td> <img th:src="@{${'images/'+img.id}}"
-                                  height="255" alt="lorem"/>
-                        </td>
+            <td><img th:src="@{${'images/'+img.id}}"
+                     height="255" alt="lorem"/>
+            </td>
 
         </tr>
     </table>
@@ -58,7 +51,7 @@
         <tr th:each="user:${userlist}">
             <td th:text="${user.id}"/>
 
-          <td th:text="${user.username}"/>
+            <td th:text="${user.username}"/>
             <td th:text="${user.name}"/>
             <td th:text="${user.surename}"/>
             <td th:text="${user.stage}"/>
