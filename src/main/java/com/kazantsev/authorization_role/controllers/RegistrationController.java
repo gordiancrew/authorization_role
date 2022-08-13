@@ -19,6 +19,9 @@ import java.util.Collections;
 @Controller
 public class RegistrationController {
     private final String GOOD_REG="регистрация прошла успешно, для того чтобы играть нужно войти.";
+    private final String USERNAME_RESERV="Логин уже занят!";
+    private final String ENTER_PASSWORD="Введите пароль какой нибудь!";
+    private final String PASSWORD_NOT_EQUALS="Введенные пароли не совпадают";
 
     @Autowired
     UserRepository userRepository;
@@ -35,8 +38,24 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String addUser(Model model, @RequestParam("username") String username,@RequestParam("password") String password,
+    public String addUser(Model model, @RequestParam("username") String username,
+                          @RequestParam("password") String password, @RequestParam String password2,
                           @RequestParam String name, @RequestParam String surename) {
+
+
+        if(userRepository.findByUsername(username)!=null){
+            model.addAttribute("info",USERNAME_RESERV);
+            return "registration";
+        }
+        if(password.equals("")){
+            model.addAttribute("info",ENTER_PASSWORD);
+            return "registration";
+        }
+        if(!password.equals(password2)){
+            model.addAttribute("info",PASSWORD_NOT_EQUALS);
+            return "registration";
+        }
+
         User user = new User();
         user.setUsername(username);
         BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();

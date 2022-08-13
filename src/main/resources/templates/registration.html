@@ -8,16 +8,36 @@
 </head>
 <body>
 <header th:insert="blocks/header :: header"></header>
+
+<div th:if="${info!=null}" class="error">
+    <h1 th:text="${info}"></h1>
+</div>
 <div class="frame">
 <form th:action="@{/registration}" method="post">
 
     <label>Данные для регистрации</label>
-    <input type="text" name="username" placeholder="логин" onchange="this.value=this.value.toLowerCase();"   autofocus="true" />
-    <input type="password" name="password" placeholder="пароль" />
-    <input type="text" name="name" placeholder="имя" />
-    <input type="text" name="surename" placeholder="фамилия" />
+    <input type="text" name="username" placeholder="логин" onchange="this.value=this.value.toLowerCase();"   autofocus="true"
+           maxlength="20"
+           pattern="[а-яА-Яa-zA-Z -0-9]{2,10}"
+           required oninvalid="this.setCustomValidity('некоретный вводб введи от 2 до 10 символов!')"
+           oninput="setCustomValidity('')"/>
+    <input type="password" name="password" placeholder="пароль"  maxlength="20"
+           required oninvalid="this.setCustomValidity('введите пароль!')"
+           oninput="setCustomValidity('')"/>
+    <input type="password" name="password2" placeholder="подтвердите пароль"  maxlength="20"
+           required oninvalid="this.setCustomValidity('введите подтвержденный пароль!')"
+           oninput="setCustomValidity('')"/>
+    <input type="text" name="name" placeholder="имя"  maxlength="20"
+           pattern="[а-яА-Яa-zA-Z]{2,10}[ -]{0,1}[а-яА-Яa-zA-Z]{0,10}"
+           required oninvalid="this.setCustomValidity('ты ввел не свое имя, а какую то билибирду!')"
+           oninput="setCustomValidity('')"/>
+    <input type="text" name="surename" placeholder="фамилия" maxlength="20"
+           pattern="[а-яА-Яa-zA-Z]{2,10}[ -]{0,1}[а-яА-Яa-zA-Z]{0,10}"
+           required oninvalid="this.setCustomValidity('ты ввел не свою фамилию, а какую то билибирду!')"
+           oninput="setCustomValidity('')"/>
     <button type="submit" >регистрация</button>
 </form>
 </div>
+
 </body>
 </html>

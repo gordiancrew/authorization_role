@@ -53,6 +53,18 @@ margin: 200 px;
     color: #feb386;
 }
 
+.error {
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    list-style: none;
+    padding: 20px;/* add padding*/
+    margin: 10px 0 ;/*change margin 0->10px*/
+    text-align: center;
+    background: red;
+    opacity: 0.7;
+
+}
 .content {
     text-decoration: none;
     font-size: 20px;
