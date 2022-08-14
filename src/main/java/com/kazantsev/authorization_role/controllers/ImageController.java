@@ -50,11 +50,19 @@ public class ImageController {
     @PostMapping("/addimage")
     public String addimagepost(Model model, @RequestParam String id, @RequestParam String name,
                                @RequestParam MultipartFile file) throws IOException {
+        Image image;
+if(imagesRepository.existsById(Integer.parseInt(id))){
+    image=imagesRepository.getById(Integer.parseInt(id));
 
-        Image image = new Image();
-        image.setId(Integer.parseInt(id));
-        image.setName(name);
-        image.setBytes(file.getBytes());
+}else{
+    image=new Image();
+    image.setId(Integer.parseInt(id));
+}
+
+      if(!name.equals("")){
+        image.setName(name);}
+      if(!file.isEmpty()){
+        image.setBytes(file.getBytes());}
         imagesRepository.save(image);
         model.addAttribute("info", IMAGE_UPLOAD);
         return "admin";

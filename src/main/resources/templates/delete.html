@@ -16,6 +16,15 @@
     </div>
 </form>
 
+<h1>Удалить сцену:</h1>
+<form method="post" enctype="multipart/form-data" th:action="@{/deletestage}">
+    <div class="frame">
+        <input type="text" name="idstage" placeholder="id stage">
+
+        <button type="submit">DELETE STAGE</button>
+    </div>
+</form>
+
 </body>
 </html>
 

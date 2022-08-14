@@ -28,19 +28,37 @@ public class StageController {
     public String addstage(Model model, @RequestParam String id, @RequestParam String name,
                            @RequestParam String q1, @RequestParam String q2, @RequestParam String q3,
                            @RequestParam String a1, @RequestParam String a2, @RequestParam String a3) throws IOException {
-        System.out.println(2);
-        Stage stage = new Stage();
-        stage.setId(Integer.parseInt(id));
-        stage.setName(name);
-        stage.setQ1(q1);
-        stage.setQ2(q2);
-        stage.setQ3(q3);
-        stage.setA1(a1);
-        stage.setA2(a2);
-        stage.setA3(a3);
-//        stage.setImg(file.getBytes());
+        Stage stage;
+        //Stage stageExist = stagesRepository.getById(Integer.parseInt(id));
+        if (stagesRepository.existsById(Integer.parseInt(id))) {
+            stage = stagesRepository.getReferenceById(Integer.parseInt(id));
+        } else {
+            stage = new Stage();
+            stage.setId(Integer.parseInt(id));
+        }
+        if (!name.equals("")) {
+            stage.setName(name);
+        }
+        if (!q1.equals("")) {
+            stage.setQ1(q1);
+        }
+        if (!q2.equals("")) {
+            stage.setQ2(q2);
+        }
+        if (!q3.equals("")) {
+            stage.setQ3(q3);
+        }
+        if (!a1.equals("")) {
+            stage.setA1(a1);
+        }
+        if (!a2.equals("")) {
+            stage.setA2(a2);
+        }
+        if (!a3.equals("")) {
+            stage.setA3(a3);
+        }
+
         stagesRepository.save(stage);
-        System.out.println(3);
         return "admin";
     }
 }

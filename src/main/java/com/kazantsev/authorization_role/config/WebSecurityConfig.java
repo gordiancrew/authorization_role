@@ -35,6 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/addimage").hasRole("ADMIN")
                 .antMatchers("/delete").hasRole("ADMIN")
                 .antMatchers("/deleteuser").hasRole("ADMIN")
+                .antMatchers("/deletestage").hasRole("ADMIN")
                 .antMatchers("/user").hasRole("USER")
                 .antMatchers("/rule").hasRole("USER")
                 .antMatchers("/quests").hasRole("USER")

@@ -7,7 +7,7 @@
     <title>admin</title>
 </head>
 <body>
-<h1 th:text="info"/>
+<h1 th:text="${info}"/>
 <header th:insert="blocks/header :: header"></header>
 <div class="frameform">
     <li><a th:href="@{/addstage}">добавить сцену</a></li>
