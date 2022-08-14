@@ -42,6 +42,11 @@ public class ImageController {
 
     }
 
+    @GetMapping("/addimage")
+    public String adim(){
+        return "addimage";
+    }
+
     @PostMapping("/addimage")
     public String addimagepost(Model model, @RequestParam String id, @RequestParam String name,
                                @RequestParam MultipartFile file) throws IOException {

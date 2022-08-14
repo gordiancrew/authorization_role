@@ -33,14 +33,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/addstage").hasRole("ADMIN")
                 .antMatchers("/addimage").hasRole("ADMIN")
+                .antMatchers("/delete").hasRole("ADMIN")
+                .antMatchers("/deleteuser").hasRole("ADMIN")
                 .antMatchers("/user").hasRole("USER")
                 .antMatchers("/rule").hasRole("USER")
+                .antMatchers("/quests").hasRole("USER")
                 .antMatchers("/adminuser").hasAnyRole("ADMIN","USER")
 
                 //Доступ разрешен всем пользователей
                 .antMatchers("/").permitAll()
                 .antMatchers("/infopage").permitAll()
-                .antMatchers("/quests").permitAll()
+
                 .antMatchers("/creater").permitAll()
                 .antMatchers("/deleter").permitAll()
                 .antMatchers("/resources/static/**").permitAll()

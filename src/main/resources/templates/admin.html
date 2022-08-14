@@ -9,8 +9,11 @@
 <body>
 <h1 th:text="info"/>
 <header th:insert="blocks/header :: header"></header>
-<li><a th:href="@{/addstage}">добавить сцену</a></li>
-<li><a th:href="@{/addimage}">добавить картинку</a></li>
+<div class="frameform">
+    <li><a th:href="@{/addstage}">добавить сцену</a></li>
+    <li><a th:href="@{/addimage}">добавить картинку</a></li>
+    <li><a th:href="@{/delete}">удалить</a></li>
+</div>
 <div class="frameform">
     <table class="content">
         <tr>
@@ -50,12 +53,10 @@
         </tr>
         <tr th:each="user:${userlist}">
             <td th:text="${user.id}"/>
-
             <td th:text="${user.username}"/>
             <td th:text="${user.name}"/>
             <td th:text="${user.surename}"/>
-            <td th:text="${user.stage}"/>
-
+            <td th:if="${user.stage!=null}" th:text="${user.stage.id}"/>
         </tr>
     </table>
 

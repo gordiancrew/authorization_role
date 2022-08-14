@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link media="all" href="/styles/style.css" rel="stylesheet">
+    <title>delete</title>
+</head>
+<body>
+<h1><a th:href="@{/admin}">admin</a></h1>
+<h1>Удалить пользователя:</h1>
+<form method="post" enctype="multipart/form-data" th:action="@{/deleteuser}">
+    <div class="frame">
+        <input type="text" name="iduser" placeholder="id user">
+
+        <button type="submit">DELETE USER</button>
+    </div>
+</form>
+
+</body>
+</html>
+
+
+
