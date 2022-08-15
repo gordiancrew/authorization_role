@@ -26,7 +26,8 @@ public class StageController {
 
     @PostMapping("/addstage")
     public String addstage(Model model, @RequestParam String id, @RequestParam String name,
-                           @RequestParam String q1, @RequestParam String q2, @RequestParam String q3,
+                           @RequestParam String q1, @RequestParam String q11, @RequestParam String q2,
+                           @RequestParam String q22,@RequestParam String q3, @RequestParam String q33,
                            @RequestParam String a1, @RequestParam String a2, @RequestParam String a3) throws IOException {
         Stage stage;
         //Stage stageExist = stagesRepository.getById(Integer.parseInt(id));
@@ -42,11 +43,20 @@ public class StageController {
         if (!q1.equals("")) {
             stage.setQ1(q1);
         }
+        if (!q11.equals("")) {
+            stage.setQ11(q11);
+        }
         if (!q2.equals("")) {
             stage.setQ2(q2);
         }
+        if (!q22.equals("")) {
+            stage.setQ22(q22);
+        }
         if (!q3.equals("")) {
             stage.setQ3(q3);
+        }
+        if (!q33.equals("")) {
+            stage.setQ33(q33);
         }
         if (!a1.equals("")) {
             stage.setA1(a1);

@@ -16,14 +16,17 @@
 <form th:action="@{/quests}" method="post">
     <div class="content">
         <p th:text="${stage.q1}"/>
+        <p th:text="${stage.q11}"/>
         <input type="text" name="answer1" placeholder="введите ответ" onchange="this.value=this.value.toLowerCase();"   autofocus="true"/>
     </div>
     <div class="content">
         <p th:text="${stage.q2}"/>
+        <p th:text="${stage.q22}"/>
         <input type="text" name="answer2" placeholder="введите ответ" onchange="this.value=this.value.toLowerCase();"   autofocus="true"/>
     </div>
     <div class="content">
         <p th:text="${stage.q3}"/>
+        <p th:text="${stage.q33}"/>
         <input type="text" name="answer3" placeholder="введите ответ" onchange="this.value=this.value.toLowerCase();"   autofocus="true"/>
     </div>
     <div class="content">

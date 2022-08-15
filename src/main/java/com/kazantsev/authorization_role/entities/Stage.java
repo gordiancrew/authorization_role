@@ -13,8 +13,11 @@ public class Stage {
     private Integer id;
     private String name;
     private String q1;
+    private String q11;
     private String q2;
+    private String q22;
     private String q3;
+    private String q33;
     private String a1;
     private String a2;
     private String a3;
