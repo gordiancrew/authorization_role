@@ -190,3 +190,7 @@ border: 2px solid #606060;
    figure:first-child {
    /* margin-left: 0;  Убираем отступ для первого элемента */
    }
+
+   .popup figure {
+   width: 50%;
+   }
