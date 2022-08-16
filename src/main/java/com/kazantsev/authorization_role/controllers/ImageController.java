@@ -77,8 +77,26 @@ public class ImageController {
         if (!file.isEmpty()) {
             image.setBytes(file.getBytes());
         }
+
+        imagesRepository.save(image);
+        model.addAttribute("info", IMAGE_UPLOAD);
+        return "admin";
+    }
+
+    @PostMapping("/addimage2")
+    public String addimagepost2(Model model, @RequestParam String id, @RequestParam MultipartFile loc) throws IOException {
+        Image image;
+        if (imagesRepository.existsById(Integer.parseInt(id))) {
+            image = imagesRepository.getById(Integer.parseInt(id));
+
+        } else {
+            image = new Image();
+            image.setId(Integer.parseInt(id));
+        }
+
+
         if (!loc.isEmpty()) {
-            image.setLoc(loc.getBytes());
+            image.setBytes(loc.getBytes());
         }
 
         imagesRepository.save(image);
