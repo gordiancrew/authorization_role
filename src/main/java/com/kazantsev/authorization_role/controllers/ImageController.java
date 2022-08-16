@@ -1,8 +1,10 @@
 package com.kazantsev.authorization_role.controllers;
 
 import com.kazantsev.authorization_role.entities.Image;
+import com.kazantsev.authorization_role.entities.Loc;
 import com.kazantsev.authorization_role.entities.Stage;
 import com.kazantsev.authorization_role.repos.ImagesRepository;
+import com.kazantsev.authorization_role.repos.LocsRepository;
 import com.kazantsev.authorization_role.repos.StagesRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,9 @@ public class ImageController {
     @Autowired
     private ImagesRepository imagesRepository;
 
+    @Autowired
+    private LocsRepository locsRepository;
+
     @GetMapping("/images/img/{id}")
     private ResponseEntity<?> getImageById(@PathVariable Integer id) {
         byte[] def = {1, 2, 3};
@@ -45,11 +50,11 @@ public class ImageController {
     @GetMapping("/images/loc/{id}")
     private ResponseEntity<?> getLocById(@PathVariable Integer id) {
         byte[] def = {1, 2, 3};
-        Image image = imagesRepository.findById(id).orElse(null);
+        Loc image = locsRepository.findById(id).orElse(null);
 
         return ResponseEntity.ok()
                 //.header("name",image.getName())
-                .body(new InputStreamResource(image != null ? new ByteArrayInputStream(image.getLoc()) :
+                .body(new InputStreamResource(image != null ? new ByteArrayInputStream(image.getBytes()) :
                         new ByteArrayInputStream(def)));
 
     }
@@ -84,22 +89,25 @@ public class ImageController {
     }
 
     @PostMapping("/addimage2")
-    public String addimagepost2(Model model, @RequestParam String id, @RequestParam MultipartFile loc) throws IOException {
-        Image image;
-        if (imagesRepository.existsById(Integer.parseInt(id))) {
-            image = imagesRepository.getById(Integer.parseInt(id));
+    public String addimagepost2(Model model, @RequestParam String id, @RequestParam String name,
+                                @RequestParam MultipartFile file) throws IOException {
+        Loc image;
+        if (locsRepository.existsById(Integer.parseInt(id))) {
+            image = locsRepository.getById(Integer.parseInt(id));
 
         } else {
-            image = new Image();
+            image = new Loc();
             image.setId(Integer.parseInt(id));
         }
 
-
-        if (!loc.isEmpty()) {
-            image.setBytes(loc.getBytes());
+        if (!name.equals("")) {
+            image.setName(name);
+        }
+        if (!file.isEmpty()) {
+            image.setBytes(file.getBytes());
         }
 
-        imagesRepository.save(image);
+        locsRepository.save(image);
         model.addAttribute("info", IMAGE_UPLOAD);
         return "admin";
     }
