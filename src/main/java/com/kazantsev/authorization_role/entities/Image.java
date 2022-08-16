@@ -13,4 +13,6 @@ public class Image {
     private String name;
     @Lob
     private byte[] bytes;
+    @Lob
+    private byte[] loc;
 }

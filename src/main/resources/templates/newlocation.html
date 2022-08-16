@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link media="all" href="/styles/style.css" rel="stylesheet">
+    <!--    <link media="all" th:ref="@{/style.css}" rel="stylesheet" type="text/css">-->
+    <title>newlocation</title>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div class="popup">
+    <figure>
+        <div class="content">
+            <img th:src="@{styles/newloc.jpg}"
+                 width="100%" alt="lorem"/>
+        </div>
+        <div class="content">
+
+            <img th:src="@{${'images/loc/'+stage.id}}"
+                 width="100%" alt="lorem"/>
+            <form method="get" th:action="@{/quests}">
+                <button type="submit">ДВИГАЕМСЯ ДАЛЬШЕ</button>
+            </form>
+        </div>
+
+
+    </figure>
+
+</div>
+</body>
+</html>

@@ -30,7 +30,7 @@ public class ImageController {
     @Autowired
     private ImagesRepository imagesRepository;
 
-    @GetMapping("/images/{id}")
+    @GetMapping("/images/img/{id}")
     private ResponseEntity<?> getImageById(@PathVariable Integer id) {
         byte[] def = {1, 2, 3};
         Image image = imagesRepository.findById(id).orElse(null);
@@ -42,27 +42,45 @@ public class ImageController {
 
     }
 
+    @GetMapping("/images/loc/{id}")
+    private ResponseEntity<?> getLocById(@PathVariable Integer id) {
+        byte[] def = {1, 2, 3};
+        Image image = imagesRepository.findById(id).orElse(null);
+
+        return ResponseEntity.ok()
+                //.header("name",image.getName())
+                .body(new InputStreamResource(image != null ? new ByteArrayInputStream(image.getLoc()) :
+                        new ByteArrayInputStream(def)));
+
+    }
+
     @GetMapping("/addimage")
-    public String adim(){
+    public String adim() {
         return "addimage";
     }
 
     @PostMapping("/addimage")
     public String addimagepost(Model model, @RequestParam String id, @RequestParam String name,
-                               @RequestParam MultipartFile file) throws IOException {
+                               @RequestParam MultipartFile file, @RequestParam MultipartFile loc) throws IOException {
         Image image;
-if(imagesRepository.existsById(Integer.parseInt(id))){
-    image=imagesRepository.getById(Integer.parseInt(id));
+        if (imagesRepository.existsById(Integer.parseInt(id))) {
+            image = imagesRepository.getById(Integer.parseInt(id));
 
-}else{
-    image=new Image();
-    image.setId(Integer.parseInt(id));
-}
+        } else {
+            image = new Image();
+            image.setId(Integer.parseInt(id));
+        }
 
-      if(!name.equals("")){
-        image.setName(name);}
-      if(!file.isEmpty()){
-        image.setBytes(file.getBytes());}
+        if (!name.equals("")) {
+            image.setName(name);
+        }
+        if (!file.isEmpty()) {
+            image.setBytes(file.getBytes());
+        }
+        if (!loc.isEmpty()) {
+            image.setLoc(loc.getBytes());
+        }
+
         imagesRepository.save(image);
         model.addAttribute("info", IMAGE_UPLOAD);
         return "admin";

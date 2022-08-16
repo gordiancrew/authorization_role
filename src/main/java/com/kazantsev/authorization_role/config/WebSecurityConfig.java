@@ -37,6 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/deleteuser").hasRole("ADMIN")
                 .antMatchers("/deletestage").hasRole("ADMIN")
                 .antMatchers("/user").hasRole("USER")
+                .antMatchers("/newlocation").hasRole("USER")
                 .antMatchers("/rule").hasRole("USER")
                 .antMatchers("/quests").hasRole("USER")
                 .antMatchers("/adminuser").hasAnyRole("ADMIN","USER")
@@ -45,8 +46,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/infopage").permitAll()
 
-                .antMatchers("/creater").permitAll()
-                .antMatchers("/deleter").permitAll()
+                //.antMatchers("/creater").permitAll()
+               // .antMatchers("/deleter").permitAll()
                 .antMatchers("/resources/static/**").permitAll()
                 .antMatchers("/addimage").permitAll()
                 //Все остальные страницы требуют аутентификации
