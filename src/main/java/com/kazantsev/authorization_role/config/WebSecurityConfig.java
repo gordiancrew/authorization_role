@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/infopage").permitAll()
 
-                //.antMatchers("/creater").permitAll()
+                .antMatchers("/creater").permitAll()
                // .antMatchers("/deleter").permitAll()
                 .antMatchers("/resources/static/**").permitAll()
                 .antMatchers("/addimage").permitAll()
