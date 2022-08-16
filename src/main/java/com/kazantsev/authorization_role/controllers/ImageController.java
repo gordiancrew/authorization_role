@@ -85,7 +85,7 @@ public class ImageController {
 
         imagesRepository.save(image);
         model.addAttribute("info", IMAGE_UPLOAD);
-        return "admin";
+        return "addimage";
     }
 
     @PostMapping("/addimage2")
@@ -109,6 +109,6 @@ public class ImageController {
 
         locsRepository.save(image);
         model.addAttribute("info", IMAGE_UPLOAD);
-        return "admin";
+        return "addimage";
     }
 }
