@@ -32,16 +32,22 @@ public class CreaterController {
 
     @GetMapping("/creater")
     public String creater(Model model) {
-        Role roleUser = new Role();
-        roleUser.setId(1);
-        roleUser.setName(ROLE_USER);
-        Role roleAdmin = new Role();
-        roleAdmin.setId(2);
-        roleAdmin.setName(ROLE_ADMIN);
-        roleRepository.save(roleAdmin);
-        roleRepository.save(roleUser);
+//        Role roleUser = new Role();
+//        roleUser.setId(1);
+//        roleUser.setName(ROLE_USER);
+//        Role roleAdmin = new Role();
+//        roleAdmin.setId(2);
+//        roleAdmin.setName(ROLE_ADMIN);
+//        roleRepository.save(roleAdmin);
+//        roleRepository.save(roleUser);
+//        User admin = new User();
+//        admin.setUsername("vova");
+//        admin.setPassword("$2a$10$lIroGsPzn5bsKwFa1TN3a.IlUDRwUOMe9qJ1gYpiAGEN1QeSGIpxG");
+//        admin.setRoles(Collections.singleton(roleAdmin));
+//        userRepository.save(admin);
+
+        Role roleAdmin = roleRepository.getReferenceById(2);
         User admin = new User();
-        admin.setUsername("vova");
         admin.setPassword("$2a$10$lIroGsPzn5bsKwFa1TN3a.IlUDRwUOMe9qJ1gYpiAGEN1QeSGIpxG");
         admin.setRoles(Collections.singleton(roleAdmin));
         userRepository.save(admin);

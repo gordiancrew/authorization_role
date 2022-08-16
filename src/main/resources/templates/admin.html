@@ -48,10 +48,10 @@
         <tr th:each="img:${imagelist}">
             <td th:text="${img.id}"/>
 
-            <td><img th:src="@{${'images/img'+img.id}}"
+            <td><img th:src="@{${'images/img/'+img.id}}"
                      height="255" alt="lorem"/>
             </td>
-            <td><img th:src="@{${'images/loc'+img.id}}"
+            <td><img th:src="@{${'images/loc/'+img.id}}"
                      height="255" alt="lorem"/>
             </td>
         </tr>
