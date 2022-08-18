@@ -25,6 +25,23 @@
     </div>
 </form>
 
+<h1>Удалить картинку:</h1>
+<form method="post" enctype="multipart/form-data" th:action="@{/deleteimage}">
+    <div class="frame">
+        <input type="text" name="idimage" placeholder="id image">
+
+        <button type="submit">DELETE STAGE</button>
+    </div>
+</form>
+<h1>Удалить лок:</h1>
+<form method="post" enctype="multipart/form-data" th:action="@{/deleteloc}">
+    <div class="frame">
+        <input type="text" name="idiloc" placeholder="id loc">
+
+        <button type="submit">DELETE STAGE</button>
+    </div>
+</form>
+
 </body>
 </html>
 

@@ -30,7 +30,7 @@ public class ImageController {
     private final String IMAGE_UPLOAD = "Картинка добавлена!";
 
     @Autowired
-    private ImagesRepository imagesRepository;
+            private ImagesRepository imagesRepository;
 
     @Autowired
     private LocsRepository locsRepository;

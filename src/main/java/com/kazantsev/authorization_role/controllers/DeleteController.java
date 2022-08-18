@@ -1,8 +1,10 @@
 package com.kazantsev.authorization_role.controllers;
 
+import com.kazantsev.authorization_role.entities.Image;
 import com.kazantsev.authorization_role.entities.Stage;
 import com.kazantsev.authorization_role.entities.User;
 import com.kazantsev.authorization_role.repos.ImagesRepository;
+import com.kazantsev.authorization_role.repos.LocsRepository;
 import com.kazantsev.authorization_role.repos.StagesRepository;
 import com.kazantsev.authorization_role.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,9 @@ public class DeleteController {
     @Autowired
     private   ImagesRepository imagesRepository;
 
+    @Autowired
+    private LocsRepository locsRepository;
+
     @GetMapping("/delete")
     public String delete(){
         return "delete";
@@ -41,9 +46,25 @@ public class DeleteController {
 
     @PostMapping("/deletestage")
     public String deletestage(Model model, @RequestParam String idstage){
-        Stage stage=stagesRepository.getReferenceById(Integer.parseInt(idstage));
+        Stage stage=stagesRepository.getById(Integer.parseInt(idstage));
         stagesRepository.delete(stage);
         model.addAttribute("info",STAGE_DELETE);
+        return "delete";
+
+    }
+
+    @PostMapping("/deleteimage")
+    public String deleteimage(Model model, @RequestParam String idimage){
+        Image  image=imagesRepository.getById(Integer.parseInt(idimage));
+        imagesRepository.delete(image);
+        return "delete";
+
+    }
+
+    @PostMapping("/deleteloc")
+    public String deleteloc(Model model, @RequestParam String idloc){
+        Image  image=imagesRepository.getById(Integer.parseInt(idloc));
+        imagesRepository.delete(image);
         return "delete";
 
     }

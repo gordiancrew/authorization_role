@@ -60,9 +60,9 @@ public class CreaterController {
     public String deleter() {
         imagesRepository.deleteAll();
 
-        userRepository.deleteAll();
-        roleRepository.deleteAll();
-        stagesRepository.deleteAll();
+//        userRepository.deleteAll();
+//        roleRepository.deleteAll();
+//        stagesRepository.deleteAll();
         return "home";
     }
 }
