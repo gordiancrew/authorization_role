@@ -66,7 +66,7 @@ public class ImageController {
 
     @PostMapping("/addimage")
     public String addimagepost(Model model, @RequestParam String id, @RequestParam String name,
-                               @RequestParam MultipartFile file, @RequestParam MultipartFile loc) throws IOException {
+                               @RequestParam MultipartFile file) throws IOException {
         Image image;
         if (imagesRepository.existsById(Integer.parseInt(id))) {
             image = imagesRepository.getById(Integer.parseInt(id));
