@@ -1,6 +1,7 @@
 package com.kazantsev.authorization_role.controllers;
 
 import com.kazantsev.authorization_role.entities.Image;
+import com.kazantsev.authorization_role.entities.Loc;
 import com.kazantsev.authorization_role.entities.Stage;
 import com.kazantsev.authorization_role.entities.User;
 import com.kazantsev.authorization_role.repos.ImagesRepository;
@@ -63,8 +64,8 @@ public class DeleteController {
 
     @PostMapping("/deleteloc")
     public String deleteloc(Model model, @RequestParam String idloc){
-        Image  image=imagesRepository.getById(Integer.parseInt(idloc));
-        imagesRepository.delete(image);
+        Loc image=locsRepository.getById(Integer.parseInt(idloc));
+       locsRepository.delete(image);
         return "delete";
 
     }
