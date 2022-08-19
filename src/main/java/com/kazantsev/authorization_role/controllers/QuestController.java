@@ -61,13 +61,13 @@ public class QuestController {
             int currentId = user.getStage().getId();
             //userRepository.plusStage(currentId);
             int newId = currentId + 1;
-
-            if (newId == 8) {
-                return "finish";
-            }
             Stage newStage = stagesRepository.getReferenceById(newId);
             user.setStage(newStage);
             userRepository.save(user);
+            if (newId == 8) {
+                return "finish";
+            }
+
 
 
             return "success";
