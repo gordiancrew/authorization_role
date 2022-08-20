@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/style.css" rel="stylesheet">
+    <title>represent</title>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<a th:href="@{/represent(number=1)}"><img th:src="@{styles/questpreview1.jpg}"
+                                              width="100%" alt="lorem"/></a>
+<a th:href="@{/quests}"><img th:src="@{styles/questpreview2.jpg}"
+                                              width="100%" alt="lorem"/></a>
+</body>
+</html>

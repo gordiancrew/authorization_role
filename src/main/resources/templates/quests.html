@@ -13,7 +13,7 @@
           width="100%" alt="lorem"/>
 
 
-<form th:if="${stage.id<11}" th:action="@{/quests}" method="post">
+<form th:if="${stage.id!=11}" th:action="@{/quests}" method="post">
     <div class="content">
         <p th:text="${stage.q1}"/>
         <p th:text="${stage.q11}"/>

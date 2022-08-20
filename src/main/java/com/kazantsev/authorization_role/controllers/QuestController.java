@@ -35,6 +35,11 @@ public class QuestController {
         User user = userRepository.findByUsername(username);
         Stage stage = user.getStage();
 
+        if(stage==null){
+
+            return "represent";
+        }
+
 
         model.addAttribute("stage", stage);
 

@@ -64,8 +64,8 @@ public class RegistrationController {
         user.setSurename(surename);
         Role role = roleRepository.getById(1);
         user.setRoles(Collections.singleton(role));
-        Stage stage = stagesRepository.getById(1);
-        user.setStage(stage);
+        //Stage stage = stagesRepository.getById(1);
+        //user.setStage(stage);
         userRepository.save(user);
         model.addAttribute("info", GOOD_REG);
         return "home";
