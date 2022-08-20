@@ -23,8 +23,6 @@ public class QuestController {
     StagesRepository stagesRepository;
 
 
-
-
     @GetMapping("/quests")
     public String quests(Model model) {
         String username;
@@ -54,10 +52,8 @@ public class QuestController {
             username = principal.toString();
         }
         User user = userRepository.findByUsername(username);
-
         if (answer1.equals(user.getStage().getA1()) && answer2.equals(user.getStage().getA2())
                 && answer3.equals(user.getStage().getA3())) {
-
             int currentId = user.getStage().getId();
             //userRepository.plusStage(currentId);
             int newId = currentId + 1;
@@ -67,9 +63,6 @@ public class QuestController {
             if (newId == 11) {
                 return "finish";
             }
-
-
-
             return "success";
         }
         return "fail";

@@ -21,8 +21,6 @@ public class Stage {
     private String a1;
     private String a2;
     private String a3;
-//    @Lob
-//    private byte[] img;
 
     @Transient
     @OneToMany

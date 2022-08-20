@@ -49,7 +49,7 @@ public class CreaterController {
 
         Role roleAdmin = roleRepository.getReferenceById(2);
         User admin = new User();
-                admin.setUsername("admin");
+        admin.setUsername("admin");
         admin.setPassword("$2a$10$lIroGsPzn5bsKwFa1TN3a.IlUDRwUOMe9qJ1gYpiAGEN1QeSGIpxG");
         admin.setRoles(Collections.singleton(roleAdmin));
         userRepository.save(admin);
@@ -59,7 +59,7 @@ public class CreaterController {
     @GetMapping("/deleter")
     public String deleter() {
         //    imagesRepository.deleteAll();
-stagesRepository.delete(stagesRepository.getById(9));
+        stagesRepository.delete(stagesRepository.getById(9));
 //        userRepository.deleteAll();
 //        roleRepository.deleteAll();
 //        stagesRepository.deleteAll();

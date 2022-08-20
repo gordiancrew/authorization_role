@@ -9,6 +9,7 @@
 <body>
 <h1 th:text="${info}"/>
 <header th:insert="blocks/header :: header"></header>
+<h1><a th:href="@{/admin}">admin</a></h1>
 <div class="frameform">
     <li><a th:href="@{/addstage}">добавить сцену</a></li>
     <li><a th:href="@{/addimage}">добавить картинку</a></li>

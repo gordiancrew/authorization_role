@@ -18,10 +18,10 @@ import java.util.Collections;
 
 @Controller
 public class RegistrationController {
-    private final String GOOD_REG="регистрация прошла успешно, для того чтобы играть нужно войти.";
-    private final String USERNAME_RESERV="Логин уже занят!";
-    private final String ENTER_PASSWORD="Введите пароль какой нибудь!";
-    private final String PASSWORD_NOT_EQUALS="Введенные пароли не совпадают";
+    private final String GOOD_REG = "регистрация прошла успешно, для того чтобы играть нужно войти.";
+    private final String USERNAME_RESERV = "Логин уже занят!";
+    private final String ENTER_PASSWORD = "Введите пароль какой нибудь!";
+    private final String PASSWORD_NOT_EQUALS = "Введенные пароли не совпадают";
 
     @Autowired
     UserRepository userRepository;
@@ -43,31 +43,31 @@ public class RegistrationController {
                           @RequestParam String name, @RequestParam String surename) {
 
 
-        if(userRepository.findByUsername(username)!=null){
-            model.addAttribute("info",USERNAME_RESERV);
+        if (userRepository.findByUsername(username) != null) {
+            model.addAttribute("info", USERNAME_RESERV);
             return "registration";
         }
-        if(password.equals("")){
-            model.addAttribute("info",ENTER_PASSWORD);
+        if (password.equals("")) {
+            model.addAttribute("info", ENTER_PASSWORD);
             return "registration";
         }
-        if(!password.equals(password2)){
-            model.addAttribute("info",PASSWORD_NOT_EQUALS);
+        if (!password.equals(password2)) {
+            model.addAttribute("info", PASSWORD_NOT_EQUALS);
             return "registration";
         }
 
         User user = new User();
         user.setUsername(username);
-        BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(password));
         user.setName(name);
         user.setSurename(surename);
         Role role = roleRepository.getById(1);
         user.setRoles(Collections.singleton(role));
-        Stage stage=stagesRepository.getById(1);
+        Stage stage = stagesRepository.getById(1);
         user.setStage(stage);
         userRepository.save(user);
-        model.addAttribute("info",GOOD_REG);
+        model.addAttribute("info", GOOD_REG);
         return "home";
     }
 }
