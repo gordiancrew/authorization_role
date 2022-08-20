@@ -45,34 +45,34 @@
             <th>img</th>
             <th>loc</th>
         </tr>
-<!--        <tr th:each="img:${imagelist}">-->
-<!--            <td th:text="${img.id}"/>-->
+        <tr th:each="img:${imagelist}">
+            <td th:text="${img.id}"/>
 
-<!--            <td><img th:src="@{${'images/img/'+img.id}}"-->
-<!--                     height="255" alt="lorem"/>-->
-<!--            </td>-->
-<!--            <td><img th:src="@{${'images/loc/'+img.id}}"-->
-<!--                     height="255" alt="lorem"/>-->
-<!--            </td>-->
-<!--        </tr>-->
+            <td><img th:src="@{${'images/img/'+img.id}}"
+                     height="255" alt="lorem"/>
+            </td>
+            <td><img th:src="@{${'images/loc/'+img.id}}"
+                     height="255" alt="lorem"/>
+            </td>
+        </tr>
     </table>
 
-<!--    <table class="content">-->
-<!--        <tr>-->
-<!--            <th>id</th>-->
-<!--            <th>username</th>-->
-<!--            <th>name</th>-->
-<!--            <th>surename</th>-->
-<!--            <th>stage</th>-->
-<!--        </tr>-->
-<!--        <tr th:each="user:${userlist}">-->
-<!--            <td th:text="${user.id}"/>-->
-<!--            <td th:text="${user.username}"/>-->
-<!--            <td th:text="${user.name}"/>-->
-<!--            <td th:text="${user.surename}"/>-->
-<!--            <td th:if="${user.stage!=null}" th:text="${user.stage.id}"/>-->
-<!--        </tr>-->
-<!--    </table>-->
+    <table class="content">
+        <tr>
+            <th>id</th>
+            <th>username</th>
+            <th>name</th>
+            <th>surename</th>
+            <th>stage</th>
+        </tr>
+        <tr th:each="user:${userlist}">
+            <td th:text="${user.id}"/>
+            <td th:text="${user.username}"/>
+            <td th:text="${user.name}"/>
+            <td th:text="${user.surename}"/>
+            <td th:if="${user.stage!=null}" th:text="${user.stage.id}"/>
+        </tr>
+    </table>
 
 </div>
 
