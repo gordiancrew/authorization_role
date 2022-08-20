@@ -27,12 +27,12 @@ public class AdminController {
 
     @GetMapping("/admin")
     public String admin(Model model) {
-       List<Stage> stagelist=stagesRepository.findAll();
-        List<Image> imagelist=imagesRepository.findAll();
-        List<User> userlist=userRepository.findAll();
-        model.addAttribute("stagelist",stagelist);
-        model.addAttribute("imagelist",imagelist);
-        model.addAttribute("userlist",userlist);
+        List<Stage> stagelist = stagesRepository.findAll();
+        List<Image> imagelist = imagesRepository.findAll();
+        List<User> userlist = userRepository.findAll();
+        model.addAttribute("stagelist", stagelist);
+        model.addAttribute("imagelist", imagelist);
+        model.addAttribute("userlist", userlist);
         return "admin";
     }
 }
